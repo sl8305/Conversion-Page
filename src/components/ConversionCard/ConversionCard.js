@@ -1,14 +1,20 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card';
 
-function ConversionCard (){
+
+function ConversionCard (props){
     return(
 
-        <div>
-            <p> CC Card</p>
-        </div>
-
-
-
+        <Card bg="dark" text='light'>
+            <Card.Body>
+                <Card.Title>{props.title}</Card.Title>
+                <Card.Text>
+                    imperial value = metric value <br/>
+                    imperial value = metric value <br/>
+                    imperial value = metric value <br/>
+                </Card.Text>
+            </Card.Body>
+        </Card>
     );
 }
 
