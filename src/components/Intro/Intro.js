@@ -7,11 +7,11 @@ import Image from 'react-bootstrap/Image';
 function Intro (){
     return (
         <Row>
-            <Col className='mx-auto' md={4}>
-                <Image src="../../../utils/images/placeholder.jpg" fluid />
+            <Col md={4}>
+                <Image src="./utils/images/placeholder.jpg/170x180" rounded />
             </Col>
 
-            <Col className='mx-auto' md={8}>
+            <Col md={8}>
                 <p> My name is Shad.</p>
                 
                 <p> Imperial vs Metric system explained.</p>
@@ -21,8 +21,6 @@ function Intro (){
             </Col>
 
         </Row>
-
-
     );
 
 }
