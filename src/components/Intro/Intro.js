@@ -4,11 +4,12 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 
 
+
 function Intro (){
     return (
         <Row>
             <Col md={4} className='mx-auto'>
-                <Image src="./utils/images/placeholder.jpg/170x180" rounded />
+                <Image src={require('../../utils/images/placeholder.jpg')} rounded />
             </Col>
 
             <Col md={6} className='mx-auto'>
