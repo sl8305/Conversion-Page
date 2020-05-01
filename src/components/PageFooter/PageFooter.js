@@ -9,7 +9,7 @@ import Image from 'react-bootstrap/Image';
 
 function PageFooter() {
     return (
-        <Navbar fixed='bottom' bg="dark" expand="lg" variant="dark">
+        <Navbar bg="dark" expand="lg" variant="dark">
             <Nav className='mx-auto'>
                 <Nav.Link 
                     target='_blank' 
