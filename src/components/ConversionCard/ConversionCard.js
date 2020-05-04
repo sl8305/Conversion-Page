@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import userInput from '../UserInput/UserInput';
 
 
 function ConversionCard (props){
@@ -13,6 +14,9 @@ function ConversionCard (props){
                     imperial value = metric value <br/>
                     imperial value = metric value <br/>
                 </Card.Text>
+
+                <userInput>Hello</userInput>
+                
             </Card.Body>
         </Card>
     );
