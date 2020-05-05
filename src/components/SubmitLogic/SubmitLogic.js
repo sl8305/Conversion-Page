@@ -5,9 +5,6 @@ const SubmitLogic = ()=> {
     return (
         <Button>Submit</Button>
 
-
-
-
     );
 }
 

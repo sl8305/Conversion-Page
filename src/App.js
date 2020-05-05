@@ -6,8 +6,6 @@ import ConversionCard from './components/ConversionCard/ConversionCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-// import CardDeck from 'react-bootstrap/CardDeck';-
-
 
 function App() {
   return (
