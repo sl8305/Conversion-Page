@@ -5,8 +5,6 @@ import Nav from 'react-bootstrap/Nav';
 import Image from 'react-bootstrap/Image';
 // import styles from './PageFooter.css';
 
-
-
 function PageFooter() {
     return (
         <Navbar bg="dark" expand="lg" variant="dark">
@@ -29,11 +27,7 @@ function PageFooter() {
             </Nav>
         </Navbar>
 
-        
-
     );
-
-
     
 }
 
