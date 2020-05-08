@@ -13,7 +13,7 @@ function Intro (){
             </Col>
 
             <Col md={6} className='mx-auto'>
-                <p> My name is Shad.</p>
+                <p> Hello, my name is Shad.</p>
                 
                 <p> Imperial vs Metric system explained.</p>
                 

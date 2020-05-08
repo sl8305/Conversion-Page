@@ -10,13 +10,13 @@ function UserInput () {
 
         <InputGroup className='mb-3'>
             <FormControl
-                placeholder="Recipient's username"
+                placeholder="Input value to be converted"
                 aria-describedby="basic-addon1"
                 />
             
             <DropdownButton
             as={InputGroup.Append}
-            variant="outline-secondary"
+            variant="secondary"
             title="Unit"
             id="input-group-dropdown-2"
             >

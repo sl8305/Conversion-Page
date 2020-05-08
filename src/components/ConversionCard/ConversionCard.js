@@ -3,10 +3,25 @@ import Card from 'react-bootstrap/Card';
 import UserInput from '../UserInput/UserInput';
 import Table from 'react-bootstrap/Table';
 
+const tableContent = list => {
+    let content = [];
+    for (let i = 0; i < list.length; i++) {
+        const imperial = list[i].Imperial;
+        const metric = list[i].Metric;
+        content.push(
+            <tr>
+                <td>{imperial.count}</td>
+                <td>{imperial.unit}</td>
+                <td>{metric.count}</td>
+                <td>{metric.unit}</td>
+            </tr>
+        );
+    }
+    return content;
+}
 
 function ConversionCard (props){
-    return(
-
+    return (
         <Card bg="dark" text='light'>
             <Card.Body>
                 <Card.Title>{props.title}</Card.Title>
@@ -14,35 +29,11 @@ function ConversionCard (props){
                     <Table striped bordered hover variant="dark">
                         <thead>
                             <tr>
-                                <th colSpan='3'>US or Imperial</th>
+                                <th colSpan='2'>US or Imperial</th>
                                 <th colSpan='2'>Metric</th>
                             </tr>
-                        </thead>    
-
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Inch [in]</td>
-                                <td></td>
-                                <td>2.54</td>
-                                <td>Centimeter [cm]</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Foot [ft]</td>
-                                <td>12 in</td>
-                                <td>0.3048</td>
-                                <td>Meter [m]</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Yard [yd]</td>
-                                <td>3 ft</td>
-                                <td>0.91444</td>
-                                <td>Meter [m]</td>
-                            </tr>
-                        </tbody>
-                        
+                        </thead> 
+                        <tbody>{tableContent(props.list)}</tbody>      
                     </Table>    
                 </Card.Text>
 
@@ -52,6 +43,5 @@ function ConversionCard (props){
         </Card>
     );
 }
-
 
 export default ConversionCard ;

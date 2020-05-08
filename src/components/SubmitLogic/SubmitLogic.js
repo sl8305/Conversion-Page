@@ -3,10 +3,7 @@ import Button from 'react-bootstrap/Button';
 
 const SubmitLogic = ()=> {
     return (
-        <Button>Submit</Button>
-
-
-
+        <Button className='ml-4' variant="success">Submit</Button>
 
     );
 }

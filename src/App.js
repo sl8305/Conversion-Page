@@ -6,31 +6,34 @@ import ConversionCard from './components/ConversionCard/ConversionCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-// import CardDeck from 'react-bootstrap/CardDeck';-
 
+var lengthList = [{'Imperial':{'count':1,'unit':'Inch'}, 'Metric':{'count':2.54, 'unit':'Centimeter'}},
+                  {'Imperial':{'count':1, 'unit':'Foot'}, 'Metric':{'count':0.3048, 'unit':'Meter'}}, 
+];
 
 function App() {
   return (
     <div className="App">
 
       <PageNavbar />
+      
       <Intro />
 
       <Row className='my-5'>
         <Col md={5} className='mx-auto'>
-          <ConversionCard title='Length' />
+          <ConversionCard title='Length' list= {lengthList}/>
         </Col>
         <Col md={5} className='mx-auto'>
-          <ConversionCard title='Temperature' />
+          <ConversionCard title='Temperature' list= {lengthList}/>
         </Col>
       </Row>
 
       <Row className='my-5'>
         <Col md={5} className='mx-auto'>
-          <ConversionCard title='Volume' />
+          <ConversionCard title='Volume' list= {lengthList}/>
         </Col>
         <Col md={5} className='mx-auto'>
-          <ConversionCard title='Weight' />
+          <ConversionCard title='Weight' list= {lengthList}/>
         </Col>
       </Row>
 
