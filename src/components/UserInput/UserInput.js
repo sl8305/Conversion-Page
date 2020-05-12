@@ -5,7 +5,27 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import SubmitLogic from '../SubmitLogic/SubmitLogic';
 
-function UserInput () {
+// dynamically render the content of the dropdownoptions
+const fillOptions = (Imperial, Metric) => {
+    let content = [];
+    for (let i=0; i < Imperial.length; i++){
+        content.push(
+        <Dropdown.Item href="#">{Imperial[i]}</Dropdown.Item>
+        );
+    }
+    content.push(<Dropdown.Divider/>);
+    for (let i=0; i < Metric.length; i++){
+        content.push(
+        <Dropdown.Item href="#">{Metric[i]}</Dropdown.Item>
+        );
+    }
+
+    return content;
+};
+
+
+
+function UserInput (props) {
     return (
 
         <InputGroup className='mb-3'>
@@ -20,15 +40,7 @@ function UserInput () {
             title="Unit"
             id="input-group-dropdown-2"
             >
-                <Dropdown.Item href="#">Inch [in]</Dropdown.Item>
-                <Dropdown.Item href="#">Foot [ft]</Dropdown.Item>
-                <Dropdown.Item href="#">Yard [yd]</Dropdown.Item>
-                <Dropdown.Item href="#">Mile </Dropdown.Item>
-                    <Dropdown.Divider />
-                <Dropdown.Item href="#">Milimeter [mm]</Dropdown.Item>
-                <Dropdown.Item href="#">Centimeter [cm]</Dropdown.Item>
-                <Dropdown.Item href="#">Meter [m]</Dropdown.Item>
-                <Dropdown.Item href="#">Kilometer [km]</Dropdown.Item>
+            {fillOptions(props.Imperial, props.Metric)}
             </DropdownButton>
 
             <SubmitLogic/>
