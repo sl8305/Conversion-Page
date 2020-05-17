@@ -6,6 +6,7 @@ import ConversionCard from './components/ConversionCard/ConversionCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+// import UserInput from './components/UserInput/UserInput';
 
 var lengthList = [{'Imperial':{'count':1,'unit':'Inch [in]'}, 'Metric':{'count':2.54, 'unit':'Centimeter [cm]'}},
                   {'Imperial':{'count':1, 'unit':'Foot [ft]'}, 'Metric':{'count':0.3048, 'unit':'Meter [m]'}}, 
@@ -38,20 +39,20 @@ function App() {
       
       <Intro />
 
-      <Row className='my-5'>
-        <Col md={5} className='mx-auto'>
+      <Row className='mx-3'>
+        <Col md={5} className='my-5 mx-auto'>
           <ConversionCard title='Weight' list= {weightList}/>
         </Col>
-        <Col md={5} className='mx-auto'>
+        <Col md={5} className='my-5 mx-auto'>
           <ConversionCard title='Temperature' list= {temperatureList}/>
         </Col>
       </Row>
 
-      <Row className='my-5'>
-        <Col md={5} className='mx-auto'>
+      <Row className='mx-3'>
+        <Col md={5} className='my-5 mx-auto'>
           <ConversionCard title='Volume' list= {volumeList}/>
         </Col>
-        <Col md={5} className='mx-auto'>
+        <Col md={5} className='my-5 mx-auto'>
           <ConversionCard title='Length' list= {lengthList}/>
         </Col>
       </Row>

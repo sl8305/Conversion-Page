@@ -2,6 +2,9 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import UserInput from '../UserInput/UserInput';
 import Table from 'react-bootstrap/Table';
+import './ConversionCard.css';
+
+var temperatureUnitList =['Fahrenheit','Celcius'];
 
 // dynamically renders the content of the conversion table via the list prop passed down from App.js
 const tableContent = list => {
@@ -31,7 +34,6 @@ const tableHeader = (title) => {
                 <th colSpan='2'></th>
             </tr>
         );
-
         return content;
     }
     else {
@@ -41,7 +43,6 @@ const tableHeader = (title) => {
             <th colSpan='2'>Metric</th>
         </tr>
         );
-
         return content;
     }
 
@@ -51,31 +52,26 @@ const tableHeader = (title) => {
 const renderInputComponent = (title, list) => {
     let content = [];
     if (title === 'Temperature'){
-        let impList = ['Fahrenheit'];
-        let metList = ['Celcius'];
-        content.push( <UserInput Imperial={impList} Metric={metList} /> );
-        
+        content.push( <UserInput title={title} unitList={temperatureUnitList} /> );
         return content;
     }
     else {
-        let impList = [];
-        let metList = [];
+        let unitArray = [];
 
         for (let i = 0; i < list.length; i++) {
-            impList.push(list[i].Imperial.unit);
-            metList.push(list[i].Metric.unit);
+            unitArray.push(list[i].Imperial.unit);
+            unitArray.push(list[i].Metric.unit);
         }
         // spread operator and native object Set is used to store unique values
-        let uniqueImp = [...new Set(impList)];
-        let uniqueMet = [...new Set(metList)];
-        content.push( <UserInput Imperial={uniqueImp} Metric={uniqueMet} /> );
+        let uniqueUnitArray = [...new Set(unitArray)];
+        content.push( <UserInput title={title} unitList={uniqueUnitArray} originalList={list}/> );
         return content;
     }
 };
 
 function ConversionCard (props){
     return (
-        <Card bg="dark" text='light'>
+        <Card bg="dark" text='light' >
             <Card.Body>
                 <Card.Title>{props.title}</Card.Title>
                 <Card.Text>

@@ -6,44 +6,58 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import SubmitLogic from '../SubmitLogic/SubmitLogic';
 
 // dynamically render the content of the dropdownoptions
-const fillOptions = (Imperial, Metric) => {
+const fillOptions = (unitList) => {
     let content = [];
-    for (let i=0; i < Imperial.length; i++){
+    for (let i=0; i < unitList.length; i++){
+        let dropDownId = '#' + unitList[i] + '';
         content.push(
-        <Dropdown.Item href="#">{Imperial[i]}</Dropdown.Item>
+        <Dropdown.Item href={dropDownId} >{unitList[i]}</Dropdown.Item>
         );
     }
-    content.push(<Dropdown.Divider/>);
-    for (let i=0; i < Metric.length; i++){
-        content.push(
-        <Dropdown.Item href="#">{Metric[i]}</Dropdown.Item>
-        );
-    }
-
     return content;
 };
 
+function createSubmitButton (title, originalList) {
+    let content =[];
+    if (title === 'temperature'){
+        content.push(<SubmitLogic />);
+        return content;
+    }
+    else{
+        content.push(<SubmitLogic list={originalList}/>);
+        return content;
+    }
+};
+
+function generateForm(title){
+    let content = [];
+    let tempId = title + "Input";
+    content.push(           
+        <FormControl
+        placeholder="Input value to be converted"
+        aria-describedby="basic-addon1"
+        id={tempId}
+        />);
+    return content;
+};
 
 
 function UserInput (props) {
     return (
 
         <InputGroup className='mb-3'>
-            <FormControl
-                placeholder="Input value to be converted"
-                aria-describedby="basic-addon1"
-                />
+            {generateForm(props.title)}
             
             <DropdownButton
             as={InputGroup.Append}
             variant="secondary"
             title="Unit"
-            id="input-group-dropdown-2"
+            id="DropDownButtons"
             >
-            {fillOptions(props.Imperial, props.Metric)}
+            {fillOptions(props.unitList)}
             </DropdownButton>
 
-            <SubmitLogic/>
+            {createSubmitButton(props.title, props.originalList)}
 
         </InputGroup>
     );
