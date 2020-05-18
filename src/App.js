@@ -40,19 +40,19 @@ function App() {
       <Intro />
 
       <Row className='mx-3'>
-        <Col md={5} className='my-5 mx-auto'>
+        <Col lg={6} md={12} sm={12} className='my-5 mx-auto'>
           <ConversionCard title='Weight' list= {weightList}/>
         </Col>
-        <Col md={5} className='my-5 mx-auto'>
+        <Col lg={6} md={12} className='my-5 mx-auto'>
           <ConversionCard title='Temperature' list= {temperatureList}/>
         </Col>
       </Row>
 
       <Row className='mx-3'>
-        <Col md={5} className='my-5 mx-auto'>
+        <Col lg={6} md={12} sm={12} className='my-5 mx-auto'>
           <ConversionCard title='Volume' list= {volumeList}/>
         </Col>
-        <Col md={5} className='my-5 mx-auto'>
+        <Col lg={6} md={12} sm={12} className='my-5 mx-auto'>
           <ConversionCard title='Length' list= {lengthList}/>
         </Col>
       </Row>

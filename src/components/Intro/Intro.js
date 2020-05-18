@@ -3,18 +3,28 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import './Intro.css';
-import placeholder from '../../utils/images/placeholder.jpg';
-
 
 
 function Intro (){
     return (
-        <Row>
-            <Col sm={4} md={4} className='mx-auto my-auto '>
-                <Image className="hundredWidth" src={placeholder} />
+        <Row className='mx-auto'>
+            <Col sm={12} md={5} className='introSpacing'>
+                <Image 
+                    src='https://cdn.statcdn.com/Infographic/images/normal/18300.jpeg'
+                    title='Infographic: Only Three Countries in the World (Officially) Still Use the Imperial System | Statista'
+                    alt='Infographic: Only Three Countries in the World (Officially) Still Use the Imperial System | Statista'
+                    className='mapImageStyle'
+                    />
+                
+                <a 
+                href="https://www.statista.com/chart/18300/countries-using-the-metric-or-the-imperial-system/" 
+                >
+                    More information is available at Statista 
+                </a>
+
             </Col>
 
-            <Col sm={6} md={6} className='mx-auto padding5'>
+            <Col sm={12} md={5} className='introSpacing'>
                 <h5>Description</h5>
 
                 <p> 
