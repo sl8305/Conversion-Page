@@ -13,11 +13,11 @@ const tableContent = list => {
         const imperial = list[i].Imperial;
         const metric = list[i].Metric;
         content.push(
-            <tr>
-                <td>{imperial.count}</td>
-                <td>{imperial.unit}</td>
-                <td>{metric.count}</td>
-                <td>{metric.unit}</td>
+            <tr key={'apple' + i}>
+                <td key={i +'iCount'}>{imperial.count}</td>
+                <td key={i +'iUnit'}>{imperial.unit}</td>
+                <td key={i +'mCount'}>{metric.count}</td>
+                <td key={i +'mUnit'}>{metric.unit}</td>
             </tr>
         );
     }
@@ -29,7 +29,7 @@ const tableHeader = (title) => {
     let content = [];
     if (title === 'Temperature'){
         content.push(
-            <tr>
+            <tr key={title + 'TableHeader'}>
                 <th colSpan='2'></th>
                 <th colSpan='2'></th>
             </tr>
@@ -38,7 +38,7 @@ const tableHeader = (title) => {
     }
     else {
         content.push(            
-        <tr>
+        <tr  key={title + 'TableHeader'}>
             <th colSpan='2'>US or Imperial</th>
             <th colSpan='2'>Metric</th>
         </tr>
@@ -52,7 +52,7 @@ const tableHeader = (title) => {
 const renderInputComponent = (title, list) => {
     let content = [];
     if (title === 'Temperature'){
-        content.push( <UserInput title={title} unitList={temperatureUnitList} /> );
+        content.push( <UserInput title={title} unitList={temperatureUnitList} key={'inputComponent'+ title} /> );
         return content;
     }
     else {
@@ -64,27 +64,28 @@ const renderInputComponent = (title, list) => {
         }
         // spread operator and native object Set is used to store unique values
         let uniqueUnitArray = [...new Set(unitArray)];
-        content.push( <UserInput title={title} unitList={uniqueUnitArray} originalList={list}/> );
+        content.push( <UserInput title={title} unitList={uniqueUnitArray} originalList={list}  key={'inputComponent'+ title}/> );
         return content;
     }
 };
 
 function ConversionCard (props){
     return (
+        
         <Card bg="dark" text='light' >
             <Card.Body>
                 <Card.Title>{props.title}</Card.Title>
-                <Card.Text>
+
                     <Table striped bordered hover variant="dark">
                         <thead>{tableHeader(props.title)}</thead> 
                         <tbody>{tableContent(props.list)}</tbody>      
-                    </Table>    
-                </Card.Text>
+                    </Table> 
 
                 {renderInputComponent(props.title, props.list)}
 
             </Card.Body>
         </Card>
+
     );
 }
 

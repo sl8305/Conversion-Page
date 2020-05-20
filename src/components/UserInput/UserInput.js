@@ -11,7 +11,7 @@ const fillOptions = (unitList) => {
     for (let i=0; i < unitList.length; i++){
         let dropDownId = '#' + unitList[i] + '';
         content.push(
-        <Dropdown.Item href={dropDownId} >{unitList[i]}</Dropdown.Item>
+        <Dropdown.Item href={dropDownId} key={dropDownId}>{unitList[i]}</Dropdown.Item>
         );
     }
     return content;
@@ -19,12 +19,12 @@ const fillOptions = (unitList) => {
 
 function createSubmitButton (title, originalList) {
     let content =[];
-    if (title === 'temperature'){
-        content.push(<SubmitLogic />);
+    if (title === 'Temperature'){
+        content.push(<SubmitLogic title={title} key={title + 'SubmitButton'}/>);
         return content;
     }
     else{
-        content.push(<SubmitLogic list={originalList}/>);
+        content.push(<SubmitLogic title={title} list={originalList} key={title + 'SubmitButton'}/>);
         return content;
     }
 };
@@ -36,7 +36,8 @@ function generateForm(title){
         <FormControl
         placeholder="Input value to be converted"
         aria-describedby="basic-addon1"
-        id={tempId}
+        refs={tempId}
+        key={tempId}
         />);
     return content;
 };

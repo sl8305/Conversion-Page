@@ -6,7 +6,7 @@ import ConversionCard from './components/ConversionCard/ConversionCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-// import UserInput from './components/UserInput/UserInput';
+import './utils/App.css';
 
 var lengthList = [{'Imperial':{'count':1,'unit':'Inch [in]'}, 'Metric':{'count':2.54, 'unit':'Centimeter [cm]'}},
                   {'Imperial':{'count':1, 'unit':'Foot [ft]'}, 'Metric':{'count':0.3048, 'unit':'Meter [m]'}}, 
@@ -39,20 +39,20 @@ function App() {
       
       <Intro />
 
-      <Row className='mx-3'>
-        <Col lg={6} md={12} sm={12} className='my-5 mx-auto'>
+      <Row className='cardSpacing '>
+        <Col lg={6} md={12} sm={12} className='my-3 mx-auto'>
           <ConversionCard title='Weight' list= {weightList}/>
         </Col>
-        <Col lg={6} md={12} className='my-5 mx-auto'>
+        <Col lg={6} md={12} className='my-3 mx-auto'>
           <ConversionCard title='Temperature' list= {temperatureList}/>
         </Col>
       </Row>
 
-      <Row className='mx-3'>
-        <Col lg={6} md={12} sm={12} className='my-5 mx-auto'>
+      <Row className='cardSpacing'>
+        <Col lg={6} md={12} sm={12} className='my-3 mx-auto'>
           <ConversionCard title='Volume' list= {volumeList}/>
         </Col>
-        <Col lg={6} md={12} sm={12} className='my-5 mx-auto'>
+        <Col lg={6} md={12} sm={12} className='my-3 mx-auto'>
           <ConversionCard title='Length' list= {lengthList}/>
         </Col>
       </Row>

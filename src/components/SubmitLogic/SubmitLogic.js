@@ -1,5 +1,78 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
+
+class SubmitLogic extends Component {
+    
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            title : props.title,
+            list : props.list,
+            inputNumber: 0, 
+        };
+
+        // this.onClick = this.onClick.bind(this);
+    }
+
+    wait4Click(title, list){
+        
+        console.log('card title', title );
+        console.log('card list', list);
+        
+    }
+    
+    prevent(e){
+        e.preventDefault();
+        this.setState({inputNumber : 56});
+
+        console.log(this.state.title);
+        console.log(this.state.list);
+        
+        console.log(this.state.inputNumber);
+
+        let tempCount = this.refs.WeightInput;
+        console.log('num', tempCount);
+    }
+
+    handleClick (title, list) {
+        
+        console.log('Submit button clicked *********************************');
+        // console.log(title);
+        // console.log(list);
+
+        // let tempId = title + "Input";
+        // let inputCount = this.refs.
+        
+        let tempCount = this.refs.WeightInput;
+        console.log('num', tempCount);
+        // let tempUnit = this.refs.;
+        
+
+    }
+
+    render(){
+        return (    
+            
+            <Button 
+                className='ml-4' 
+                variant="success"
+                onClick = {
+                    // this.handleClick(this.state.title, this.state.list)
+
+                    // binding this to access state
+                    this.prevent.bind(this)
+                } 
+                id={(this.state.title + 'Submit')}
+                >Submit
+
+            </Button>
+
+        );
+    }
+}
+
+export default SubmitLogic;
 
 
 // function calcResult(count, unit) {
@@ -34,15 +107,3 @@ import Button from 'react-bootstrap/Button';
   
 //     return result;
 //   }
-  
-//   var volumeUnitList = [];
-
-
-const SubmitLogic = (props)=> {
-    return (
-        <Button className='ml-4' variant="success">Submit</Button>
-
-    );
-}
-
-export default SubmitLogic;
